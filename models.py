@@ -35,8 +35,8 @@ class UserCafe(BaseModel):
     user = ForeignKeyField(User, backref='users')
     cafe = ForeignKeyField(Cafe, backref='cafe')
 
-# def initialize():
-#     DATABASE.connect()
-#     DATABASE.create_tables([User, Cafe, UserCafe], safe=True)
-#     print("tables created")
-#     DATABASE.close()
+def initialize():
+    DATABASE.connect()
+    DATABASE.create_tables([User, Cafe, UserCafe], safe=True)
+    print("tables created")
+    DATABASE.close()

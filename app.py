@@ -42,9 +42,9 @@ CORS(app,\
      origins=['http://localhost:3000'],\
      supports_credentials=True)
 
-# app.register_blueprint(dog, url_prefix='/api/v1/dogs')
+# app.register_blueprint(cafe, url_prefix='/api/v1/cafes')
 # app.register_blueprint(users, url_prefix='/api/v1/users')
-# app.register_blueprint(user_dogs, url_prefix='/api/v1/user_dogs')
+# app.register_blueprint(user_cafes, url_prefix='/api/v1/user_cafes')
 
 @app.route('/')
 def index():
@@ -65,7 +65,7 @@ def say_hello(name):
 
 # run app
 if __name__ == '__main__':
-    # models.initialize()
+    models.initialize()
     app.run(port=8000, debug=True)
 
 # source .env/bin/activate

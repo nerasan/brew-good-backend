@@ -15,9 +15,11 @@ class User(UserMixin, BaseModel):
     username = CharField(unique=True)
     email = CharField(unique=True)
     password = CharField()
+
+class Person(BaseModel):
     city = CharField()
     country = CharField()
-    about = CharField()
+    about = TextField()
 
 # most of this will be pulled from Yelp API so does there need to be a model?
 class Cafe(BaseModel):
@@ -37,6 +39,6 @@ class UserCafe(BaseModel):
 
 def initialize():
     DATABASE.connect()
-    DATABASE.create_tables([User, Cafe, UserCafe], safe=True)
+    DATABASE.create_tables([User, Person, Cafe, UserCafe], safe=True)
     print("tables created")
     DATABASE.close()

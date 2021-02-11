@@ -32,7 +32,7 @@ def register():
 
         return jsonify(data=user_dict, status={"code": 201, "message": "successfully registered"})
 
-# login route
+# login route -- log in with email and password (not username)
 @users.route('/login', methods=["POST"])
 def login():
     payload = request.get_json()

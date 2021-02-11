@@ -3,9 +3,9 @@ from flask_cors import CORS
 from flask_login import LoginManager
 
 import models
-# from resources.user_dogs import user_dogs
-# from resources.users import users
-# from resources.dogs import dog
+from resources.user_cafes import user_cafes
+from resources.users import users
+from resources.cafes import cafe
 
 app = Flask(__name__)
 
@@ -42,26 +42,26 @@ CORS(app,\
      origins=['http://localhost:3000'],\
      supports_credentials=True)
 
-# app.register_blueprint(cafe, url_prefix='/api/v1/cafes')
-# app.register_blueprint(users, url_prefix='/api/v1/users')
-# app.register_blueprint(user_cafes, url_prefix='/api/v1/user_cafes')
+app.register_blueprint(cafe, url_prefix='/api/v1/cafes')
+app.register_blueprint(users, url_prefix='/api/v1/users')
+app.register_blueprint(user_cafes, url_prefix='/api/v1/user_cafes')
 
 @app.route('/')
 def index():
-    return 'hey folks!'
+    return 'hi welcome to brew good!'
     # python uses return to send back responses rather than res.send or res.render
 
-@app.route('/sayhello/<name>')
-def say_hello(name):
+# @app.route('/sayhello/<name>')
+# def say_hello(name):
 
-    band = request.args.get('bandname')
+#     band = request.args.get('bandname')
 
-    return jsonify(
-        msg='hello', 
-        bandname=band,
-        status=200, 
-        list=["bob", "ricky"], 
-        artist="fatima " + name)
+#     return jsonify(
+#         msg='hello', 
+#         bandname=band,
+#         status=200, 
+#         list=["bob", "ricky"], 
+#         artist="fatima " + name)
 
 # run app
 if __name__ == '__main__':
